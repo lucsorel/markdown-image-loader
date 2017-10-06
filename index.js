@@ -1,0 +1,34 @@
+const loaderUtils = require('loader-utils')
+
+const markdownImageReferencesRE = /(!\[[^\]]*\]\([^)]+\))/g
+const imagePathRE = /^(!\[[^\]]*\]\()([^)]+)(\))$/
+
+// converts the image path in the markdowned-image syntax into a require statement, or stringify the given content
+function requirifyImageReference(markdownImageReference) {
+  const [, mdImageStart, mdImagePath, mdImageEnd ] = imagePathRE.exec(markdownImageReference) || []
+  if (!mdImagePath) {
+    return JSON.stringify(markdownImageReference)
+  } else {
+    const imageRequest = loaderUtils.stringifyRequest(
+      this,
+      loaderUtils.urlToRequest(mdImagePath)
+    )
+
+    return `${JSON.stringify(mdImageStart)} + require(${imageRequest}) + ${JSON.stringify(mdImageEnd)}`
+  }
+}
+
+// exports the MarkdownImageLoader loader function
+module.exports = function MarkdownImageLoader(markdownContent = '') {
+  return `
+module.exports = [
+${markdownContent.split(markdownImageReferencesRE).map(requirifyImageReference).join(',\n')}
+]`
+}
+
+// exports function and regexp helpers for testability purposes
+module.exports.helpers = {
+  markdownImageReferencesRE,
+  imagePathRE,
+  requirifyImageReference
+}

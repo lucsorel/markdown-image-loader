@@ -1,0 +1,38 @@
+{
+  "name": "markdown-image-loader",
+  "version": "1.0.0",
+  "description": "Handles image references involved in markdown files during the webpack processing.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha -R spec test/*test.js",
+    "lint": "eslint --ignore-path .gitignore 'index.js'"
+  },
+  "keywords": [
+    "webpack",
+    "loader",
+    "markdown",
+    "image references",
+    "remark"
+  ],
+  "devDependencies": {
+    "eslint": "^4.8.0",
+    "mocha": "^4.0.0",
+    "webpack": "^3.6.0"
+  },
+  "peerDependencies": {
+    "file-loader": "^1.1.5"
+  },
+  "author": "Luc Sorel",
+  "license": "MIT",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lucsorel/markdown-image-loader.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lucsorel/markdown-image-loader/issues"
+  },
+  "engines": {
+    "node": ">=6.11"
+  }
+}

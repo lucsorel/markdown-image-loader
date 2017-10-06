@@ -1,0 +1,8 @@
+# OS specific hidden files
+.DS_Store
+thumbs.db
+*~
+.directory
+
+# dependencies
+node_modules/
