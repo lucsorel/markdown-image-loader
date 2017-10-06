@@ -1,7 +1,9 @@
 <div align="center">
-  <img width="208" height="128" alt="Markdown logo"
-    src="https://upload.wikimedia.org/wikipedia/commons/4/48/Markdown-mark.svg" />
-  <a href="https://github.com/webpack/webpack">
+  <a href="https://en.wikipedia.org/wiki/Markdown" target="_blank">
+    <img width="208" height="128" alt="Markdown logo" vspace="36"
+      src="https://upload.wikimedia.org/wikipedia/commons/4/48/Markdown-mark.svg" />
+  </a>
+  <a href="https://github.com/webpack/webpack" target="_blank">
     <img width="200" height="200" alt="Webpack logo"
       src="https://webpack.js.org/assets/icon-square-big.svg" />
   </a>
@@ -26,7 +28,7 @@ npm i -D webpack file-loader markdown-image-loader
 
 # Use cases
 
-This loader was originally designed to display markdown content on the browser-side with [Remark](https://remarkjs.com/), a slideshow engine. In the webpack process, this loader converts image references of markdown documents into image file requirements so that the [file-loader](https://github.com/webpack-contrib/file-loader) can process them in your build chain. The `remark` use-case described hereafter was inspired by [Sébastien Castiel](https://github.com/scastiel). The images involved in the markdown content must references to files included in your project, urls towards external resources won't be handled properly.
+This loader was originally designed to display [markdown](https://en.wikipedia.org/wiki/Markdown) content on the browser-side with [Remark](https://remarkjs.com/), a slideshow engine. In the webpack process, this loader converts image references of markdown documents into image file requirements so that the [file-loader](https://github.com/webpack-contrib/file-loader) can process them in your build chain. The `remark` use-case described hereafter was inspired by [Sébastien Castiel](https://github.com/scastiel). The images involved in the markdown content must references to files included in your project, urls towards external resources won't be handled properly.
 
 ```
 dist // contains the result of your build, including the image files processed by webpack
