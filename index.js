@@ -1,7 +1,7 @@
 const loaderUtils = require('loader-utils')
 
-const markdownImageReferencesRE = /(!\[[^\]]*\]\([^)]+\))/g
-const imagePathRE = /^(!\[[^\]]*\]\()([^)]+)(\))$/
+const markdownImageReferencesRE = /(!\[[^\]]*\]\((?!(?:https?:)?\/\/)[^)]+\))/g
+const imagePathRE = /^(!\[[^\]]*\]\()((?!(?:https?:)?\/\/)[^)]+)(\))$/
 
 // converts the image path in the markdowned-image syntax into a require statement, or stringify the given content
 function requirifyImageReference(markdownImageReference) {

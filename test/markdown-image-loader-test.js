@@ -44,6 +44,27 @@ Here we have ![PNG](path/to/image.png) image ![JPG](path/to/image.jpg) reference
       assert.equal(markdownParts[3], '![JPG](path/to/image.jpg)')
       assert.equal(markdownParts[4], ' references\n')
     })
+
+    it('should ignore an https-URLed image reference', () => {
+      const markdownURLedContent = 'an inline ![SVG](https://cldup.com/xFVFxOioAU.svg) https-URLed image'
+      const markdownParts = markdownURLedContent.split(markdownImageReferencesRE)
+      assert.equal(markdownParts.length, 1)
+      assert.equal(markdownParts[0], markdownURLedContent)
+    })
+
+    it('should ignore an http-URLed image reference', () => {
+      const markdownURLedContent = 'an inline ![SVG](http://cldup.com/xFVFxOioAU.svg) http-URLed image'
+      const markdownParts = markdownURLedContent.split(markdownImageReferencesRE)
+      assert.equal(markdownParts.length, 1)
+      assert.equal(markdownParts[0], markdownURLedContent)
+    })
+
+    it('should ignore an URLed image reference', () => {
+      const markdownURLedContent = 'an inline ![SVG](//cldup.com/xFVFxOioAU.svg) URLed image'
+      const markdownParts = markdownURLedContent.split(markdownImageReferencesRE)
+      assert.equal(markdownParts.length, 1)
+      assert.equal(markdownParts[0], markdownURLedContent)
+    })
   })
 
   describe('# imagePathRE regexp helper tests suite', () => {
@@ -110,11 +131,17 @@ This is **bold "quoted text"** and a [link](https://github.com/lucsorel/) which 
       )
     })
 
-    it('should transform an image markdown URL reference into an erroneous requirement', () => {
-      const markdownImageReference = '![SVG](https://cldup.com/xFVFxOioAU.svg)'
+    it('should not transform URL-ed image markdown references into requirements', () => {
+      const markdownURLedImageReferences =
+`
+an https ![SVG](https://cldup.com/xFVFxOioAU.svg) URLed image
+an http ![SVG](http://cldup.com/xFVFxOioAU.svg) URLed image
+an ![SVG](//cldup.com/xFVFxOioAU.svg) URLed image
+`
+
       assert.equal(
-        requirifyImageReference(markdownImageReference),
-        '"![SVG](" + require("./https://cldup.com/xFVFxOioAU.svg") + ")"'
+        requirifyImageReference(markdownURLedImageReferences),
+        JSON.stringify(markdownURLedImageReferences)
       )
     })
   })
@@ -132,6 +159,8 @@ This is **bold "quoted text"** and a [link](https://github.com/lucsorel/) which 
 ![](path/to/image.png)
 
 Here we have ![SVG](path/to/image.svg) image ![JPG](path/to/image.jpg) inline references
+
+There we have: an https ![SVG](https://xFVFxOioAU.svg) URLed image, an http ![SVG](http://xFVFxOioAU.svg) URLed image and an ![SVG](//xFVFxOioAU.svg) URLed image
 `
 
       // note that the backslashes of the newline characters must be escaped in the expected text variable
@@ -144,7 +173,7 @@ module.exports = [
 "![SVG](" + require("./path/to/image.svg") + ")",
 " image ",
 "![JPG](" + require("./path/to/image.jpg") + ")",
-" inline references\\n"
+" inline references\\n\\nThere we have: an https ![SVG](https://xFVFxOioAU.svg) URLed image, an http ![SVG](http://xFVFxOioAU.svg) URLed image and an ![SVG](//xFVFxOioAU.svg) URLed image\\n"
 ]`
 
       assert.equal(MarkdownImageLoader(markdownContent), expectedExport)

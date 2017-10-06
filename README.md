@@ -12,7 +12,7 @@
 
 **Handles image references involved in markdown files during the webpack processing.**
 
-Highly inspired from the [Webpack: A simple loader](https://bocoup.com/blog/webpack-a-simple-loader) article by [Michael "Z" Goddard](http://zfighting.tumblr.com/tagged/I-MADE-DIS), rewritten with some ES6 flavor, use-case documentation and unit testing.
+Highly inspired from the [Webpack: A simple loader](https://bocoup.com/blog/webpack-a-simple-loader) article by [Michael "Z" Goddard](http://zfighting.tumblr.com/tagged/I-MADE-DIS), rewritten with some ES6 flavor, use-case documentation and unit testing. Addition: the loader does not impact references to online images (eg: image path starting with `http://`, `https://` or `//`).
 
 # Installation
 
@@ -28,7 +28,7 @@ npm i -D webpack file-loader markdown-image-loader
 
 # Use cases
 
-This loader was originally designed to display [markdown](https://en.wikipedia.org/wiki/Markdown) content on the browser-side with [Remark](https://remarkjs.com/), a slideshow engine. In the webpack process, this loader converts image references of markdown documents into image file requirements so that the [file-loader](https://github.com/webpack-contrib/file-loader) can process them in your build chain. The `remark` use-case described hereafter was inspired by [Sébastien Castiel](https://github.com/scastiel). The images involved in the markdown content must references to files included in your project, urls towards external resources won't be handled properly.
+This loader was originally designed to display [markdown](https://en.wikipedia.org/wiki/Markdown) content on the browser-side with [Remark](https://remarkjs.com/), a slideshow engine. In the webpack process, this loader converts image references of markdown documents into image file requirements so that the [file-loader](https://github.com/webpack-contrib/file-loader) can process them in your build chain. The `remark` use-case described hereafter was inspired by [Sébastien Castiel](https://github.com/scastiel).
 
 ```
 dist // contains the result of your build, including the image files processed by webpack
