@@ -174,9 +174,30 @@ module.exports = [
 " image ",
 "![JPG](" + require("./path/to/image.jpg") + ")",
 " inline references\\n\\nThere we have: an https ![SVG](https://xFVFxOioAU.svg) URLed image, an http ![SVG](http://xFVFxOioAU.svg) URLed image and an ![SVG](//xFVFxOioAU.svg) URLed image\\n"
-]`
+].join('')`
 
-      assert.equal(MarkdownImageLoader(markdownContent), expectedExport)
+      const actualExport = MarkdownImageLoader(markdownContent)
+      assert.equal(actualExport, expectedExport)
+
+      // validates the evaluation of the module export
+      // (the `module.exports` assignment is removed, the `require` call is replaced for evaluation sake)
+      const actualParsing = function() {
+        /* eslint-disable no-unused-vars */
+        let require = myargs => `'~required:${myargs}~'`
+        /* eslint-enable no-unused-vars */
+        return eval(actualExport.replace('\nmodule.exports = ', ''))
+      }.call()
+
+      const expectedParsing = `
+# title
+
+![]('~required:./path/to/image.png~')
+
+Here we have ![SVG]('~required:./path/to/image.svg~') image ![JPG]('~required:./path/to/image.jpg~') inline references
+
+There we have: an https ![SVG](https://xFVFxOioAU.svg) URLed image, an http ![SVG](http://xFVFxOioAU.svg) URLed image and an ![SVG](//xFVFxOioAU.svg) URLed image
+`
+      assert.equal(actualParsing, expectedParsing)
     })
   })
 })

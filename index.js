@@ -23,7 +23,7 @@ module.exports = function MarkdownImageLoader(markdownContent = '') {
   return `
 module.exports = [
 ${markdownContent.split(markdownImageReferencesRE).map(requirifyImageReference).join(',\n')}
-]`
+].join('')`
 }
 
 // exports function and regexp helpers for testability purposes
