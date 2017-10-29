@@ -175,6 +175,13 @@ Unit tests can be run with the `npm test` command.
 
 Despite these efforts, should you find an issue or spot a vital feature, you are welcome to report bugs and submit code requests!
 
+# Change log
+
+* 1.0.**3**: [perf] made the loader outputs cacheable, [doc] added this change log section
+* 1.0.**2**: [fix] removed the comma surrounding image requirements in the exported module content
+* 1.0.**1**: [fix] the loader should not not require URLed-image references
+* **1.0.0**: initial release with unit-tests and documentation
+
 # License
 
 May be freely distributed under the [MIT license](https://github.com/lucsorel/markdown-image-loader/blob/master/LICENSE).

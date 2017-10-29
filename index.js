@@ -20,6 +20,9 @@ function requirifyImageReference(markdownImageReference) {
 
 // exports the MarkdownImageLoader loader function
 module.exports = function MarkdownImageLoader(markdownContent = '') {
+  // the outputs of this loader can be cached
+  this.cacheable && this.cacheable()
+
   return `
 module.exports = [
 ${markdownContent.split(markdownImageReferencesRE).map(requirifyImageReference).join(',\n')}

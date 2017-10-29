@@ -1,6 +1,6 @@
 {
   "name": "markdown-image-loader",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Handles image references involved in markdown files during the webpack processing.",
   "main": "index.js",
   "scripts": {
@@ -15,9 +15,9 @@
     "remark"
   ],
   "devDependencies": {
-    "eslint": "^4.8.0",
+    "eslint": "^4.10.0",
     "mocha": "^4.0.0",
-    "webpack": "^3.6.0"
+    "webpack": "^3.8.1"
   },
   "peerDependencies": {
     "file-loader": "^1.1.5"
