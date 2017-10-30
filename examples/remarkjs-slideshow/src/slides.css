@@ -1,0 +1,76 @@
+/* declares the fonts to use (handled by the file-loader) */
+@font-face {
+  font-family: 'Din OT';
+  src: url('fonts/DINOT.otf') format('opentype');
+}
+@font-face {
+  font-family: 'Din OT';
+  font-weight: bold;
+  src: url('fonts/DINOT-Bold.otf') format('opentype');
+}
+@font-face {
+  font-family: 'Din OT';
+  font-style: italic;
+  src: url('fonts/DINOT-Italic.otf') format('opentype');
+}
+@font-face {
+  font-family: 'Ubuntu Mono';
+  src: url('fonts/UbuntuMono-Regular.ttf') format('opentype');
+}
+@font-face {
+  font-family: 'Ubuntu Mono';
+  font-weight: bold;
+  src: url('fonts/UbuntuMono-Bold.ttf') format('opentype');
+}
+@font-face {
+  font-family: 'Ubuntu Mono';
+  font-style: italic;
+  src: url('fonts/UbuntuMono-Italic.ttf') format('opentype');
+}
+
+/* uses one font family for the text, a mono-spaced font family for code samples */
+body {
+  font-family: 'Din OT';
+  color: #3c3c3b
+}
+.remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+
+/*.remark-slide-content h1, .remark-slide-content h2, .remark-slide-content h3 {
+  font-family: 'Ubuntu Mono';
+  font-weight: bold;
+}*/
+.remark-slide-content h1 {
+  font-size: 40px;
+  border-bottom: 5px solid #17E5F5;
+  padding-bottom: 5px;
+}
+.remark-slide-content h2 {
+  font-size: 35px;
+  border-bottom: 5px solid #F74D9D;
+  display: inline-block;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+.remark-code {
+  background-color: #FFF !important;
+  border: solid #FFBD1D;
+  border-width: 1px 1px 1px 10px;
+}
+.center {
+  text-align: center;
+}
+.center p {
+  display: inline-block;
+}
+.md-logo, .webpack-logo {
+  display: inline-block;
+}
+.center .md-logo img {
+  width: 208px;
+  height: 128px;
+  margin-bottom: 36px;
+}
+.center .webpack-logo img {
+  width: 200px;
+  height: 200px
+}

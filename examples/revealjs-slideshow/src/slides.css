@@ -1,0 +1,50 @@
+
+/*.reveal h1, .reveal h2, .reveal h3 {
+  font-family: 'Ubuntu Mono';
+  font-weight: bold;
+}*/
+body * {
+  text-align: left;
+  font-size: 20px;
+}
+.reveal h1 {
+  font-size: 40px;
+  border-bottom: 5px solid #17E5F5;
+  padding-bottom: 5px;
+}
+.reveal h2 {
+  font-size: 35px;
+  border-bottom: 5px solid #F74D9D;
+  display: inline-block;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.reveal section img {
+    margin: 0;
+    background: transparent;
+    border: 0 none transparent;
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+}
+
+.logos {
+  text-align: center;
+}
+.center p {
+  display: inline-block;
+}
+.md-logo, .webpack-logo {
+  display: inline-block;
+}
+.logos .md-logo img {
+  width: 208px;
+  height: 128px;
+  margin-bottom: 36px;
+}
+.logos .webpack-logo img {
+  width: 200px;
+  height: 200px
+}
+.reveal pre code {
+    max-height: none;
+}
