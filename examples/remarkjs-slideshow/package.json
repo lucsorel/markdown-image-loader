@@ -1,0 +1,22 @@
+{
+  "name": "remarkjs-slideshow",
+  "version": "1.0.0",
+  "description": "a markdown-image-loader use-case when building a remarksjs slideshow",
+  "main": "src/remarkjs-slideshow.js",
+  "scripts": {
+    "build": "rm -rf dist && webpack",
+    "start": "webpack-dev-server"
+  },
+  "author": "Luc Sorel",
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "css-loader": "^0.28.7",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "file-loader": "^1.1.5",
+    "html-webpack-plugin": "^2.30.1",
+    "markdown-image-loader": "^1.0.2",
+    "webpack": "^3.8.1",
+    "webpack-dev-server": "^2.9.3"
+  }
+}

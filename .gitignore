@@ -4,5 +4,8 @@ thumbs.db
 *~
 .directory
 
+# log files
+*.log
+
 # dependencies
 node_modules/
