@@ -2079,9 +2079,9 @@ map-obj@^1.0.0, map-obj@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/map-obj/-/map-obj-1.0.1.tgz#d933ceb9205d82bdcf4886f6742bdc2b4dea146d"
 
-markdown-image-loader@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/markdown-image-loader/-/markdown-image-loader-1.0.2.tgz#bf10fa21001345cb05c47b111b47454d6121548a"
+markdown-image-loader@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/markdown-image-loader/-/markdown-image-loader-1.0.4.tgz#54119808de261206bcbd70d721d5b962d3b01f94"
 
 math-expression-evaluator@^1.2.14:
   version "1.2.17"
