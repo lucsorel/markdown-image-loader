@@ -1,13 +1,12 @@
 # A markdown-image-loader use case for RemarkJS
 
-
 .center[
 .md-logo[
-![](img/markdown-logo.svg)
+![alt markdown logo](img/markdown-logo.svg)
 ]
 
 .webpack-logo[
-![](img/webpack-logo.svg)
+![](img/webpack-logo.svg "webpack logo title")
 ]
 ]
 

@@ -1,11 +1,11 @@
 const loaderUtils = require('loader-utils')
 
-const markdownImageReferencesRE = /(!\[[^\]]*\]\((?!(?:https?:)?\/\/)[^)]+\))/g
-const imagePathRE = /^(!\[[^\]]*\]\()((?!(?:https?:)?\/\/)[^)]+)(\))$/
+const markdownImageReferencesRE = /(!\[[^\]]*\]\((?!(?:https?:)?\/\/)[^)'"]+(?:\s+["'][^"']*["'])?\))/g
+const imagePathRE = /^(!\[[^\]]*\]\()((?!(?:https?:)?\/\/)[^)"']+)(\s+["'][^"']*["'])?(\))$/
 
 // converts the image path in the markdowned-image syntax into a require statement, or stringify the given content
 function requirifyImageReference(markdownImageReference) {
-  const [, mdImageStart, mdImagePath, mdImageEnd ] = imagePathRE.exec(markdownImageReference) || []
+  const [, mdImageStart, mdImagePath, optionalMdTitle, mdImageEnd ] = imagePathRE.exec(markdownImageReference) || []
   if (!mdImagePath) {
     return JSON.stringify(markdownImageReference)
   } else {
@@ -13,8 +13,9 @@ function requirifyImageReference(markdownImageReference) {
       this,
       loaderUtils.urlToRequest(mdImagePath)
     )
+    const mdImageTitleAndEnd = optionalMdTitle ? JSON.stringify(optionalMdTitle + mdImageEnd) : JSON.stringify(mdImageEnd)
 
-    return `${JSON.stringify(mdImageStart)} + require(${imageRequest}) + ${JSON.stringify(mdImageEnd)}`
+    return `${JSON.stringify(mdImageStart)} + require(${imageRequest}) + ${mdImageTitleAndEnd}`
   }
 }
 

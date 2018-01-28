@@ -2,10 +2,10 @@
 
 <div class="logos">
   <span class="md-logo">
-    ![](img/markdown-logo.svg)
+    ![alt markdown logo](img/markdown-logo.svg)
   </span>
   <span class="webpack-logo">
-    ![](img/webpack-logo.svg)
+    ![](img/webpack-logo.svg "webpack logo title")
   </span>
 </div>
 

@@ -12,7 +12,12 @@
 
 **Handles image references involved in markdown files during the webpack processing.**
 
-Highly inspired from the [Webpack: A simple loader](https://bocoup.com/blog/webpack-a-simple-loader) article by [Michael "Z" Goddard](http://zfighting.tumblr.com/tagged/I-MADE-DIS), rewritten with some ES6 flavor, use-case documentation and unit testing. Addition: the loader does not impact references to online images (eg: image path starting with `http://`, `https://` or `//`).
+Highly inspired from the [Webpack: A simple loader](https://bocoup.com/blog/webpack-a-simple-loader) article by [Michael "Z" Goddard](http://zfighting.tumblr.com/tagged/I-MADE-DIS), rewritten with some ES6 flavor, use-case documentation and unit testing.
+
+Additions:
+
+* the loader does not impact references to online images (eg: image path starting with `http://`, `https://` or `//`)
+* the loader handles markdown image references with a title
 
 # Installation
 
@@ -28,7 +33,7 @@ npm i -D webpack file-loader markdown-image-loader
 
 # How it works
 
-In the [webpack](https://webpack.js.org/) process, this loader converts image references of markdown documents into image file requirements so that the [file-loader](https://github.com/webpack-contrib/file-loader) can process them in your build chain.
+In the [webpack](https://webpack.js.org/) process, this loader etracts image references of markdown documents with a regular expression, then converts them into image file requirements so that the [file-loader](https://github.com/webpack-contrib/file-loader) can process them in your build chain.
 
 # Use cases
 
@@ -204,6 +209,7 @@ Despite these efforts, should you find an issue or spot a vital feature, you are
 
 # Change log
 
+* 1.0.**5**: [feature] the loader handles image references with an optional title
 * 1.0.**4**: [doc] added sample slideshows for [RemarkJS](examples/remarkjs-slideshow/RemarkJS-webpack-setup.md) and [RevealJS](examples/revealjs-slideshow/RevealJS-webpack-setup.md) in the `/examples` folder
 * 1.0.**3**: [perf] made the loader outputs cacheable, [doc] added this change log section
 * 1.0.**2**: [fix] removed the comma surrounding image requirements in the exported module content
@@ -214,4 +220,4 @@ Despite these efforts, should you find an issue or spot a vital feature, you are
 
 May be freely distributed under the [MIT license](https://github.com/lucsorel/markdown-image-loader/blob/master/LICENSE).
 
-Copyright (c) 2017 Luc Sorel
+Copyright (c) 2017-2018 Luc Sorel-Giffo
