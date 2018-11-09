@@ -209,12 +209,13 @@ Despite these efforts, should you find an issue or spot a vital feature, you are
 
 # Change log
 
+* **2.0.0**: [config] dependencies update, for webpack 3.x and 4.x. Webpack configurations for [RemarkJS](examples/remarkjs-slideshow/RemarkJS-webpack-setup.md) and [RevealJS](examples/revealjs-slideshow/RevealJS-webpack-setup.md) slideshows in the `/examples` folder have been updated for Webpack 4.x support
 * 1.0.**5**: [feature] the loader handles image references with an optional title
 * 1.0.**4**: [doc] added sample slideshows for [RemarkJS](examples/remarkjs-slideshow/RemarkJS-webpack-setup.md) and [RevealJS](examples/revealjs-slideshow/RevealJS-webpack-setup.md) in the `/examples` folder
 * 1.0.**3**: [perf] made the loader outputs cacheable, [doc] added this change log section
 * 1.0.**2**: [fix] removed the comma surrounding image requirements in the exported module content
 * 1.0.**1**: [fix] the loader should not not require URLed-image references
-* **1.0.0**: initial release with unit-tests and documentation
+* **1.0.0**: initial release with unit-tests and documentation, for webpack 3.x
 
 # License
 

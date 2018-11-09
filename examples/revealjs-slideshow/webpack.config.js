@@ -1,8 +1,9 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
+  mode: 'development',
   entry: path.join(__dirname, 'src', 'revealjs-slideshow.js'),
   output: {
     filename: 'bundled-app.js',
@@ -14,9 +15,10 @@ module.exports = {
       // requires css files as external text files
       {
         test: /\.css$/,
-        use: ExtractTextPlugin.extract({
-          use: 'css-loader'
-        })
+        use: [
+          MiniCssExtractPlugin.loader, // only if you want a separate css file
+          { loader: 'css-loader' } // add css or sass loaders if necessary
+        ]
       },
       // requires fonts as external files
       {
@@ -40,6 +42,9 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.join('src', 'index.html')
     }),
-    new ExtractTextPlugin('slides.css'),
+    new MiniCssExtractPlugin({
+      filename: '[name].css',
+      chunkFilename: '[id].css'
+    })
   ]
 }
