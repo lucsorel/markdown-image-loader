@@ -24,10 +24,10 @@ text
 `
 
       const markdownParts = markdownContent.split(markdownImageReferencesRE)
-      assert.equal(markdownParts.length, 3, 'number of markdown content parts after regexp split')
-      assert.equal(markdownParts[0], '\n# title\n\nInline ', '1st part without image reference')
-      assert.equal(markdownParts[1], '![](path/to/image.png)', '2nd part with the image reference')
-      assert.equal(markdownParts[2], ' image reference\n\ntext\n', '3rd part without the image reference')
+      assert.strictEqual(markdownParts.length, 3, 'number of markdown content parts after regexp split')
+      assert.strictEqual(markdownParts[0], '\n# title\n\nInline ', '1st part without image reference')
+      assert.strictEqual(markdownParts[1], '![](path/to/image.png)', '2nd part with the image reference')
+      assert.strictEqual(markdownParts[2], ' image reference\n\ntext\n', '3rd part without the image reference')
     })
 
     it('should detect multiple image references', () => {
@@ -40,52 +40,52 @@ and a ![TIFF](path/to/image.tiff "double-quoted title") image references.
 `
 
       const markdownParts = markdownContent.split(markdownImageReferencesRE)
-      assert.equal(markdownParts.length, 9, 'number of markdown content parts after regexp split')
+      assert.strictEqual(markdownParts.length, 9, 'number of markdown content parts after regexp split')
 
-      assert.equal(markdownParts[0], '\nHere we have ')
-      assert.equal(markdownParts[1], '![PNG](path/to/image.png)')
-      assert.equal(markdownParts[2], ' image ')
-      assert.equal(markdownParts[3], '![JPG](path/to/image.jpg)')
-      assert.equal(markdownParts[4], ' references.\n\nThen a ')
-      assert.equal(markdownParts[5], "![SVG](path/to/single-quoted.svf 'single-quoted title')")
-      assert.equal(markdownParts[6], '\nand a ')
-      assert.equal(markdownParts[7], '![TIFF](path/to/image.tiff "double-quoted title")')
-      assert.equal(markdownParts[8], ' image references.\n')
+      assert.strictEqual(markdownParts[0], '\nHere we have ')
+      assert.strictEqual(markdownParts[1], '![PNG](path/to/image.png)')
+      assert.strictEqual(markdownParts[2], ' image ')
+      assert.strictEqual(markdownParts[3], '![JPG](path/to/image.jpg)')
+      assert.strictEqual(markdownParts[4], ' references.\n\nThen a ')
+      assert.strictEqual(markdownParts[5], "![SVG](path/to/single-quoted.svf 'single-quoted title')")
+      assert.strictEqual(markdownParts[6], '\nand a ')
+      assert.strictEqual(markdownParts[7], '![TIFF](path/to/image.tiff "double-quoted title")')
+      assert.strictEqual(markdownParts[8], ' image references.\n')
     })
 
     it('should ignore an https-URLed image reference', () => {
       const markdownURLedContent = 'an inline ![SVG](https://cldup.com/xFVFxOioAU.svg) https-URLed image'
       const markdownParts = markdownURLedContent.split(markdownImageReferencesRE)
-      assert.equal(markdownParts.length, 1)
-      assert.equal(markdownParts[0], markdownURLedContent)
+      assert.strictEqual(markdownParts.length, 1)
+      assert.strictEqual(markdownParts[0], markdownURLedContent)
     })
 
     it('should ignore an http-URLed image reference', () => {
       const markdownURLedContent = 'an inline ![SVG](http://cldup.com/xFVFxOioAU.svg) http-URLed image'
       const markdownParts = markdownURLedContent.split(markdownImageReferencesRE)
-      assert.equal(markdownParts.length, 1)
-      assert.equal(markdownParts[0], markdownURLedContent)
+      assert.strictEqual(markdownParts.length, 1)
+      assert.strictEqual(markdownParts[0], markdownURLedContent)
     })
 
     it('should ignore an URLed image reference', () => {
       const markdownURLedContent = 'an inline ![SVG](//cldup.com/xFVFxOioAU.svg) URLed image'
       const markdownParts = markdownURLedContent.split(markdownImageReferencesRE)
-      assert.equal(markdownParts.length, 1)
-      assert.equal(markdownParts[0], markdownURLedContent)
+      assert.strictEqual(markdownParts.length, 1)
+      assert.strictEqual(markdownParts[0], markdownURLedContent)
     })
 
     it('should ignore an URLed image reference with a single-quoted title', () => {
       const markdownURLedContent = "an inline ![SVG](//cldup.com/xFVFxOioAU.svg 'single-quoted title') URLed image"
       const markdownParts = markdownURLedContent.split(markdownImageReferencesRE)
-      assert.equal(markdownParts.length, 1)
-      assert.equal(markdownParts[0], markdownURLedContent)
+      assert.strictEqual(markdownParts.length, 1)
+      assert.strictEqual(markdownParts[0], markdownURLedContent)
     })
 
     it('should ignore an URLed image reference with a double-quoted title', () => {
       const markdownURLedContent = 'an inline ![SVG](//cldup.com/xFVFxOioAU.svg "double-quoted title") URLed image'
       const markdownParts = markdownURLedContent.split(markdownImageReferencesRE)
-      assert.equal(markdownParts.length, 1)
-      assert.equal(markdownParts[0], markdownURLedContent)
+      assert.strictEqual(markdownParts.length, 1)
+      assert.strictEqual(markdownParts[0], markdownURLedContent)
     })
   })
 
@@ -110,11 +110,11 @@ and a ![TIFF](path/to/image.tiff "double-quoted title") image references.
       const matches = imagePathRE.exec(markdownImageReference)
       assert.ok(matches)
       assert.strictEqual(matches.length, 5)
-      assert.equal(matches[0], markdownImageReference, 'full pattern match')
-      assert.equal(matches[1], '![PNG](')
-      assert.equal(matches[2], 'path/to/image.png')
-      assert.equal(matches[3], undefined)
-      assert.equal(matches[4], ')')
+      assert.strictEqual(matches[0], markdownImageReference, 'full pattern match')
+      assert.strictEqual(matches[1], '![PNG](')
+      assert.strictEqual(matches[2], 'path/to/image.png')
+      assert.strictEqual(matches[3], undefined)
+      assert.strictEqual(matches[4], ')')
     })
 
     it('should match the image path and its wrappers when being executed against an image block with a single-quoted title', () => {
@@ -122,11 +122,11 @@ and a ![TIFF](path/to/image.tiff "double-quoted title") image references.
       const matches = imagePathRE.exec(markdownImageReference)
       assert.ok(matches)
       assert.strictEqual(matches.length, 5)
-      assert.equal(matches[0], markdownImageReference, 'full pattern match')
-      assert.equal(matches[1], '![PNG](')
-      assert.equal(matches[2], 'path/to/image.png')
-      assert.equal(matches[3], " 'single-quoted title'")
-      assert.equal(matches[4], ')')
+      assert.strictEqual(matches[0], markdownImageReference, 'full pattern match')
+      assert.strictEqual(matches[1], '![PNG](')
+      assert.strictEqual(matches[2], 'path/to/image.png')
+      assert.strictEqual(matches[3], " 'single-quoted title'")
+      assert.strictEqual(matches[4], ')')
     })
 
     it('should match the image path and its wrappers when being executed against an image block with a double-quoted title', () => {
@@ -134,11 +134,11 @@ and a ![TIFF](path/to/image.tiff "double-quoted title") image references.
       const matches = imagePathRE.exec(markdownImageReference)
       assert.ok(matches)
       assert.strictEqual(matches.length, 5)
-      assert.equal(matches[0], markdownImageReference, 'full pattern match')
-      assert.equal(matches[1], '![PNG](')
-      assert.equal(matches[2], 'path/to/image.png')
-      assert.equal(matches[3], ' "double-quoted title"')
-      assert.equal(matches[4], ')')
+      assert.strictEqual(matches[0], markdownImageReference, 'full pattern match')
+      assert.strictEqual(matches[1], '![PNG](')
+      assert.strictEqual(matches[2], 'path/to/image.png')
+      assert.strictEqual(matches[3], ' "double-quoted title"')
+      assert.strictEqual(matches[4], ')')
     })
   })
 
@@ -163,7 +163,7 @@ and a ![TIFF](path/to/image.tiff "double-quoted title") image references.
 `
 This is **bold "quoted text"** and a [link](https://github.com/lucsorel/) which is not 'an image'
 `
-      assert.equal(
+      assert.strictEqual(
         requirifyImageReference(markdownContent),
         "\"\\nThis is **bold \\\"quoted text\\\"** and a [link](https://github.com/lucsorel/) which is not 'an image'\\n\"",
         'non-image markdown content is stringified to be parsed as a JS string'
@@ -172,7 +172,7 @@ This is **bold "quoted text"** and a [link](https://github.com/lucsorel/) which 
 
     it('should transform a image markdown reference into a requirement', () => {
       const markdownImageReference = '![PNG](path/to/image.png)'
-      assert.equal(
+      assert.strictEqual(
         requirifyImageReference(markdownImageReference),
         '"![PNG](" + require("./path/to/image.png") + ")"'
       )
@@ -186,7 +186,7 @@ an http ![SVG](http://cldup.com/xFVFxOioAU.svg) URLed image
 an ![SVG](//cldup.com/xFVFxOioAU.svg) URLed image
 `
 
-      assert.equal(
+      assert.strictEqual(
         requirifyImageReference(markdownURLedImageReferences),
         JSON.stringify(markdownURLedImageReferences)
       )
@@ -230,7 +230,7 @@ module.exports = [
 ].join('')`
 
       const actualExport = MarkdownImageLoader(markdownContent)
-      assert.equal(actualExport, expectedExport)
+      assert.strictEqual(actualExport, expectedExport)
 
       // validates the evaluation of the module export
       // (the `module.exports` assignment is removed, the `require` call is replaced for evaluation sake)
@@ -252,7 +252,7 @@ Then we have ![PNG]('~required:./path/to/image.png~' "double-quoted title") and 
 
 Finally we have: an https ![SVG](https://xFVFxOioAU.svg) URLed image, an http ![SVG](http://xFVFxOioAU.svg) URLed image and an ![SVG](//xFVFxOioAU.svg) URLed image
 `
-      assert.equal(actualParsing, expectedParsing)
+      assert.strictEqual(actualParsing, expectedParsing)
     })
   })
 })
