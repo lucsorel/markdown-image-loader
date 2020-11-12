@@ -121,7 +121,7 @@ Reveal.initialize({ ... })
 In line ![test2](img/test2.png) image reference.
 ```
 
-* `webpack.config.js`. Loaders defined in the `module.rules` section are called  from bottom to top: the `file-loader` must be called after the `markdown-image-loader` produces new file requirements:
+* `webpack.config.js`. Loaders defined in the `module.rules` section are called from bottom to top: the `file-loader` must be called after the `markdown-image-loader` produces new file requirements:
 :
 
 ```js
@@ -152,6 +152,8 @@ module.exports = {
   }
 }
 ```
+
+Use the [file-loader options](https://webpack.js.org/loaders/file-loader/#options) to customize the way image files must be handled (file naming, output path, url prefix, etc.). 
 
 * `package.json`. Use the `scripts.build` to produce the static files ready to be served in production, for which you must include these mandatory dependencies in your project: `webpack`, `file-loader` and `markdown-image-loader`. You can optionally include the `webpack-dev-server` to serve your slideshow with live-reload with the `scripts.start` command.
 
@@ -209,6 +211,7 @@ Despite these efforts, should you find an issue or spot a vital feature, you are
 
 # Change log
 
+* 2.0.**1**: [config] dependencies update, [doc] reference to the file loader options for image file customization
 * **2.0.0**: [config] dependencies update, for webpack 3.x and 4.x. Webpack configurations for [RemarkJS](examples/remarkjs-slideshow/RemarkJS-webpack-setup.md) and [RevealJS](examples/revealjs-slideshow/RevealJS-webpack-setup.md) slideshows in the `/examples` folder have been updated for Webpack 4.x support
 * 1.0.**5**: [feature] the loader handles image references with an optional title
 * 1.0.**4**: [doc] added sample slideshows for [RemarkJS](examples/remarkjs-slideshow/RemarkJS-webpack-setup.md) and [RevealJS](examples/revealjs-slideshow/RevealJS-webpack-setup.md) in the `/examples` folder
@@ -221,4 +224,4 @@ Despite these efforts, should you find an issue or spot a vital feature, you are
 
 May be freely distributed under the [MIT license](https://github.com/lucsorel/markdown-image-loader/blob/master/LICENSE).
 
-Copyright (c) 2017-2018 Luc Sorel-Giffo
+Copyright (c) 2017-2020 Luc Sorel-Giffo

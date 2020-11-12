@@ -1,6 +1,6 @@
 {
   "name": "revealjs-slideshow",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "a markdown-image-loader use-case when building a revealjs slideshow",
   "main": "src/revealjs-slideshow.js",
   "scripts": {
@@ -15,7 +15,7 @@
     "file-loader": "^2.0.0",
     "headjs": "^1.0.3",
     "html-webpack-plugin": "^3.2.0",
-    "markdown-image-loader": "^2.0.0",
+    "markdown-image-loader": "^2.0.1",
     "mini-css-extract-plugin": "^0.4.4",
     "reveal.js": "^3.7.0",
     "webpack": "^4.25.1",
