@@ -14,13 +14,13 @@
     "css-loader": "^1.0.1",
     "file-loader": "^2.0.0",
     "headjs": "^1.0.3",
-    "html-webpack-plugin": "^3.2.0",
+    "html-webpack-plugin": "^5.5.0",
     "markdown-image-loader": "^2.0.1",
     "mini-css-extract-plugin": "^0.4.4",
     "reveal.js": "^3.7.0",
-    "webpack": "^4.25.1",
-    "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.10"
+    "webpack": "^5.72.1",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.9.0"
   },
   "engines": {
     "node": ">=6.11"
