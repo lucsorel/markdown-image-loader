@@ -228,8 +228,6 @@ Despite these efforts, should you find an issue or spot a vital feature, you are
 
 * [Luc Sorel-Giffo](https://github.com/lucsorel)
 * [Hardik Sukhadiya](https://github.com/hardiksukhadiya)
-* [Julien Jerphanion](https://github.com/jjerphan)
-* [Luis Fernando Villanueva Pérez](https://github.com/jonykalavera)
 
 Pull-requests are welcome and will be processed on a best-effort basis.
 
