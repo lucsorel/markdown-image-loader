@@ -43,8 +43,10 @@ This loader was originally designed to quickly setup web-based slideshows using 
 
 Two full setups are given in the `examples/` folder of this repository:
 
-* [RemarkJS-based slideshow](examples/remarkjs-slideshow/RemarkJS-webpack-setup.md): this use-case was inspired by [Sébastien Castiel](https://github.com/scastiel) (thanks!)
+* [RemarkJS-based slideshow](examples/remarkjs-slideshow/RemarkJS-webpack-setup.md): this use-case was inspired by [Sébastien Castiel](https://github.com/scastiel) (thanks!).
+This example works with webpack 5
 * [RevealJS-based slideshow](examples/revealjs-slideshow/RevealJS-webpack-setup.md): this one is my initiative
+This example works with webpack 4 and an older version of Reveal.js (pull request to update this example are welcome)
 
 Both slideshow examples share the same philosophy, adapted to the technical choices of each framework:
 
@@ -211,6 +213,7 @@ Despite these efforts, should you find an issue or spot a vital feature, you are
 
 # Change log
 
+* **3.0.0**: [config] dependencies update, for webpack 5.x
 * 2.0.**1**: [config] dependencies update, [doc] reference to the file loader options for image file customization
 * **2.0.0**: [config] dependencies update, for webpack 3.x and 4.x. Webpack configurations for [RemarkJS](examples/remarkjs-slideshow/RemarkJS-webpack-setup.md) and [RevealJS](examples/revealjs-slideshow/RevealJS-webpack-setup.md) slideshows in the `/examples` folder have been updated for Webpack 4.x support
 * 1.0.**5**: [feature] the loader handles image references with an optional title
@@ -220,8 +223,18 @@ Despite these efforts, should you find an issue or spot a vital feature, you are
 * 1.0.**1**: [fix] the loader should not not require URLed-image references
 * **1.0.0**: initial release with unit-tests and documentation, for webpack 3.x
 
-# License
 
-May be freely distributed under the [MIT license](https://github.com/lucsorel/markdown-image-loader/blob/master/LICENSE).
+# Contributions
 
-Copyright (c) 2017-2020 Luc Sorel-Giffo
+* [Luc Sorel-Giffo](https://github.com/lucsorel)
+* [Hardik Sukhadiya](https://github.com/hardiksukhadiya)
+* [Julien Jerphanion](https://github.com/jjerphan)
+* [Luis Fernando Villanueva Pérez](https://github.com/jonykalavera)
+
+Pull-requests are welcome and will be processed on a best-effort basis.
+
+# Licence
+
+Unless stated otherwise all works are licensed under the [MIT license](http://spdx.org/licenses/MIT.html), a copy of which is included [here](LICENSE).
+
+Copyright (c) 2017-2022 Luc Sorel-Giffo

@@ -1,6 +1,6 @@
 {
   "name": "markdown-image-loader",
-  "version": "2.0.1",
+  "version": "3.0.0",
   "description": "Handles image references involved in markdown files during the webpack processing.",
   "main": "index.js",
   "scripts": {
