@@ -9,3 +9,5 @@ thumbs.db
 
 # dependencies
 node_modules/
+package-lock.json
+yarn.lock
