@@ -33,7 +33,7 @@ npm i -D webpack file-loader markdown-image-loader
 
 # How it works
 
-In the [webpack](https://webpack.js.org/) process, this loader etracts image references of markdown documents with a regular expression, then converts them into image file requirements so that the [file-loader](https://github.com/webpack-contrib/file-loader) can process them in your build chain.
+In the [webpack](https://webpack.js.org/) process, this loader extracts image references of markdown documents with a regular expression, then converts them into image file requirements so that the [file-loader](https://github.com/webpack-contrib/file-loader) can process them in your build chain.
 
 # Use cases
 
@@ -231,7 +231,7 @@ Despite these efforts, should you find an issue or spot a vital feature, you are
 
 Pull-requests are welcome and will be processed on a best-effort basis.
 
-# Licence
+# License
 
 Unless stated otherwise all works are licensed under the [MIT license](http://spdx.org/licenses/MIT.html), a copy of which is included [here](LICENSE).
 
