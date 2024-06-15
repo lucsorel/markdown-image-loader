@@ -1,11 +1,11 @@
 {
   "name": "markdown-image-loader",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Handles image references involved in markdown files during the webpack processing.",
   "main": "index.js",
   "scripts": {
     "test": "mocha -R spec test/*test.js",
-    "lint": "eslint --ignore-path .gitignore 'index.js'"
+    "lint": "eslint 'index.js'"
   },
   "keywords": [
     "webpack",
@@ -17,8 +17,8 @@
     "reveal"
   ],
   "devDependencies": {
-    "eslint": "^7.13.0",
-    "mocha": "^8.2.1"
+    "eslint": "^9.5.0",
+    "mocha": "^10.4.0"
   },
   "dependencies": {
     "loader-utils": "^2.0.0"

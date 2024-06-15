@@ -213,6 +213,7 @@ Despite these efforts, should you find an issue or spot a vital feature, you are
 
 # Change log
 
+* 3.0.**1**: [config] `loader-utils` is a production depndency, not a dev dependency; upgraded version of eslint and mocha
 * **3.0.0**: [config] dependencies update, for webpack 5.x
 * 2.0.**1**: [config] dependencies update, [doc] reference to the file loader options for image file customization
 * **2.0.0**: [config] dependencies update, for webpack 3.x and 4.x. Webpack configurations for [RemarkJS](examples/remarkjs-slideshow/RemarkJS-webpack-setup.md) and [RevealJS](examples/revealjs-slideshow/RevealJS-webpack-setup.md) slideshows in the `/examples` folder have been updated for Webpack 4.x support
@@ -228,6 +229,7 @@ Despite these efforts, should you find an issue or spot a vital feature, you are
 
 * [Luc Sorel-Giffo](https://github.com/lucsorel)
 * [Hardik Sukhadiya](https://github.com/hardiksukhadiya)
+* [Jake Harclerode](https://github.com/Yahkob)
 
 Pull-requests are welcome and will be processed on a best-effort basis.
 
@@ -235,4 +237,4 @@ Pull-requests are welcome and will be processed on a best-effort basis.
 
 Unless stated otherwise all works are licensed under the [MIT license](http://spdx.org/licenses/MIT.html), a copy of which is included [here](LICENSE).
 
-Copyright (c) 2017-2022 Luc Sorel-Giffo
+Copyright (c) 2017-2024 Luc Sorel-Giffo
